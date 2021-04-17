@@ -1,0 +1,5 @@
+To run this program, access the site https://loginapp-guru.azurewebsites.net/ in browser.
+
+The code has beeen deployed to the github repository, https://github.com/gurujothi/Loginapp1. To review the code, please access the guthub site.
+
+
