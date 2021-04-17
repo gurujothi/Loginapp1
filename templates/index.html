@@ -1,0 +1,99 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Login Application using Microsoft Azure </title>
+<link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<style> 
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: lightgrey;
+}
+button { 
+       background-color: #4CAF50; 
+       width: 40%;
+        color: orange; 
+        padding: 15px; 
+        margin: 10px 0px; 
+        border: none; 
+        cursor: pointer; 
+         } 
+ form { 
+        border: 3px solid #f1f1f1; 
+    } 
+ input[type=text], input[type=password] { 
+        width: 40%; 
+        margin: 8px 0;
+        padding: 12px 20px; 
+        display: inline-block; 
+        border: 2px solid green; 
+        box-sizing: border-box; 
+    }
+ button:hover { 
+        opacity: 0.7; 
+    } 
+      
+   
+ .container { 
+        padding: 25px; 
+        background-color: lightblue;
+    } 
+</style> 
+</head>  
+<body>  
+    <center> <h2> Login Application using Microsoft Azure </h1> </center> 
+  
+
+<form  action="" method="post" role="form">
+        {{ form.csrf }}
+        <div class="container"> 
+            <center>
+            <label>Username : </label> 
+            <input type="text" class="form-control" id="username" name="username" placeholder="Please Enter Username">
+            <br>
+            <label>Password : </label> 
+            <input type="password" class="form-control" id="password" name="password" placeholder="Please Enter your password">
+            <center><br>
+          <button type="submit" class="btn btn-success"><b>Login</b></button>
+        </center> 
+        </center>
+            
+        </div> 
+    </form> 
+    <br>
+
+ {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+        {% for message in messages %}
+            
+            {% if "Success" in message[1]: %}
+                <div class="alert alert-success">
+                <strong>SUCCESS! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+            
+            {% if "Error" not in message[1] and "Success" not in message[1] : %}
+                <div class="alert alert-info">
+                <strong>INFO! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-danger">
+                <strong>Error: </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+
+</body>   
+</html>
+
+ 
+
